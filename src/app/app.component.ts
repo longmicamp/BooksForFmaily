@@ -20,7 +20,6 @@ interface ApiResponse {
 }
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [RouterOutlet, BookResultComponent, HttpClientModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
