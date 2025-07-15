@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Page</title>
-</head>
-<body>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Page</title>
@@ -27,21 +19,13 @@
                     </svg>
                     <input type="text" class="search-input" id= "search-input" placeholder="Enter your search query...">
                 </div>
-                <button class="search-button" (click)=performSearch()>Search</button>
-                @for (item of bookResponse; track $index) {
-                    <p>{{item.title}}</p>
-                }
-                <!-- @if (isLoading2) {
-                    <p>Loading Results...</p>
-                }
-                @else {
-                   <p>Loading Results2</p> 
-                }
-                <p>{{isLoading()}}</p> -->
-
+                <button class="search-button" onclick=performSearch()>Search</button>
+                <!-- @for (item of ApiResponse.Books; track item.name) {
+                    <li>{{ item.name }}</li>
+                    } @empty {
+                    <li>There are no items.</li>
+                    } -->
             </div>
         </div>
     </div>
 </body>
-</body>
-</html>
