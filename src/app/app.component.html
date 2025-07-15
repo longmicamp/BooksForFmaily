@@ -29,7 +29,7 @@
                 </div>
                 <button class="search-button" (click)=performSearch()>Search</button>
                 @for (item of bookResponse; track $index) {
-                    <p>{{item.title}}</p>
+                    <app-book-item [book]="item"></app-book-item>
                 }
                 <!-- @if (isLoading2) {
                     <p>Loading Results...</p>

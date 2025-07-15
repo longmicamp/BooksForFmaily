@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { BookResultComponent } from "./Components/book-result/book-result.component";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
+import { ScrollingModule } from "@angular/cdk/scrolling"
 
 interface Book {
     title?: string;
@@ -20,6 +21,7 @@ interface ApiResponse {
 }
 @Component({
     selector: 'app-root',
+    standalone: true,
     imports: [RouterOutlet, BookResultComponent, HttpClientModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
@@ -29,6 +31,7 @@ export class AppComponent {
     isLoading: any = signal(false);
     isLoading2: boolean = false;
     bookResponse: Book[] | undefined = [];
+    viewportHeight = 600
 
     constructor(
         private http: HttpClient,
@@ -75,12 +78,6 @@ export class AppComponent {
         if (!this.isBrowser) {
             return;
         }
-        //const resultsContainer = document.getElementById('search-results') as HTMLElement;
-
-        // if (!resultsContainer) {
-        //     console.error('Results container not found');
-        //     return;
-        // }
 
         if (!response || !response.books || response.books.length === 0) {
             //resultsContainer.innerHTML = '<div class="no-results">No results found. Try a different search term.</div>';
